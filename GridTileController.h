@@ -1,14 +1,14 @@
 #pragma once
 #include "GridTile.h"
-#include "GridTileShape.h"
 
 class GridTileController
 {
 public: 
-	enum PolygonType {TRIANGLE, SQUARE, PENTAGON, HEXAGON};
+	//enum PolygonType {TRIANGLE, SQUARE, PENTAGON, HEXAGON};
 	// 14 known pentagon tiling patterns: http://www.mathpuzzle.com/tilepent.html
+	// See also: http://boardgamegeek.com/thread/534988/something-that-has-bugged-me-for-oh-well-overn/
 
-	GridTileController::PolygonType nGon;
+	//PolygonType polygonType;
 	GridTile** tiles;
 	int numberOfTiles;
 
@@ -16,7 +16,7 @@ public:
 	GridTile* getTile(int index);
 	int getNumberOfTiles();
 
-	GridTileController(PolygonType nGon=PolygonType::HEXAGON);
+	GridTileController(void);
 	~GridTileController(void);
 
 };

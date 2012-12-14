@@ -143,7 +143,7 @@ int main()
 	window->setMouseCursorVisible(false);
 
 	// Floor:
-	GridTileController* gtc = new GridTileController(GridTileController::PolygonType::PENTAGON);
+	GridTileController* gtc = new GridTileController();
 	GridFloor* gf = new GridFloor(window, 4, 4, gtc);
 
 	// Icon:

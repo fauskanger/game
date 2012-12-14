@@ -2,16 +2,18 @@
 #include <SFML\Graphics.hpp>
 
 #include "GridTileController.h"
+#include "GridTileShape.h"
+
 
 class GridTile
 {
 private:
 	sf::Shape* shape;
-	GridTileController::PolygonType polygonType;
+//	GridTileController::PolygonType polygonType;
 	void generateShape();
 
 public:
-	GridTile(GridTileController::PolygonType pt);
+	GridTile(void);
 	~GridTile(void);
 
 	sf::Shape* getShape();

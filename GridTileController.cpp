@@ -1,12 +1,11 @@
 #include "GridTileController.h"
 
 
-GridTileController::GridTileController(GridTileController::PolygonType nGon)
+GridTileController::GridTileController()
 {
-	this->nGon = nGon;
 	numberOfTiles = 1;
 	tiles = new GridTile*[numberOfTiles];
-	tiles[0] = new GridTile(nGon);
+	tiles[0] = new GridTile();
 }
 
 

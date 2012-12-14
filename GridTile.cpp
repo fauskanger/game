@@ -1,9 +1,9 @@
 #include "GridTile.h"
 
 
-GridTile::GridTile(GridTileController::PolygonType pt)
+GridTile::GridTile()
 {
-	this->polygonType = pt;
+	//this->polygonType = pt;
 	generateShape(); 
 }
 
@@ -21,7 +21,9 @@ sf::Shape* GridTile::getShape()
 
 void GridTile::generateShape()
 {
-	switch(polygonType)
+	
+		shape = (new GridTileShape())->getShape();
+	/*switch(polygonType)
 	{
 	case GridTileController::PENTAGON:
 		shape = (new GridTileShape())->getShape();
@@ -29,5 +31,5 @@ void GridTile::generateShape()
 	default:
 		shape = new sf::RectangleShape(sf::Vector2f(100,100));
 		break;
-	}
+	}*/
 }
