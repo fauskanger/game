@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridFloor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="myAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="myMultiTextureAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridTileController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridTileShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\smurf.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00000.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00001.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00002.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00003.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00004.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00005.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00006.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00007.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00008.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00009.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00010.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00011.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00012.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00013.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00014.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00015.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00016.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00017.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00018.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00019.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00020.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00021.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00022.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00023.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00024.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00025.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00026.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00027.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00028.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00029.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00030.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00031.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00032.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00033.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00034.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00035.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00036.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00037.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00038.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00039.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00040.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00041.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00042.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00043.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00044.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00045.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00046.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00047.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00048.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00049.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00050.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00051.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00052.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00053.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00054.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00055.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00056.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00057.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00058.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00059.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00060.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00061.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00062.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00063.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00064.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00065.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00066.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00067.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00068.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00069.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00070.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00071.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00072.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00073.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00074.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00075.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00076.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00077.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00078.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00079.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00080.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00081.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00082.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00083.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00084.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00085.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00086.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00087.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00088.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00089.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00090.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00091.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00092.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00093.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00094.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00095.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00096.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00097.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00098.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00099.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00100.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00101.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00102.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00103.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00104.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00105.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00106.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00107.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00108.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00109.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00110.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00111.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00112.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00113.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00114.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00115.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00116.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00117.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="img\animation\Blue\BlueNoWand_00118.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GridFloor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="myAnimation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="myMultiTextureAnimation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTileController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTileShape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
