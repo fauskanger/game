@@ -6,6 +6,7 @@ class GridTileController
 {
 public: 
 	enum PolygonType {TRIANGLE, SQUARE, PENTAGON, HEXAGON};
+	// 14 known pentagon tiling patterns: http://www.mathpuzzle.com/tilepent.html
 
 	GridTileController::PolygonType nGon;
 	GridTile** tiles;
