@@ -327,6 +327,9 @@ int main()
 		window->clear();
 
 		
+
+
+
 		gf->draw();
 		
 		window->draw(myText2);
