@@ -194,6 +194,7 @@
     <None Include="img\animation\Blue\BlueNoWand_00116.png" />
     <None Include="img\animation\Blue\BlueNoWand_00117.png" />
     <None Include="img\animation\Blue\BlueNoWand_00118.png" />
+    <None Include="img\smurf.ico" />
     <None Include="img\smurf.png" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +209,7 @@
     <ClInclude Include="inc\myAnimation.h" />
     <ClInclude Include="inc\myMultiTextureAnimation.h" />
     <ClInclude Include="inc\resource.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GridFloor.cpp" />
