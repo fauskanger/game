@@ -201,6 +201,7 @@
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Globals.h" />
     <ClInclude Include="inc\GridFloor.h" />
     <ClInclude Include="inc\GridTile.h" />
     <ClInclude Include="inc\GridTileController.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Globals.cpp" />
     <ClCompile Include="src\GridFloor.cpp" />
     <ClCompile Include="src\GridTile.cpp" />
     <ClCompile Include="src\GridTileController.cpp" />

@@ -8,8 +8,9 @@
 #include <sstream>
 #include <math.h>
 
-#include "GridFloor.h"
+#include "Globals.h"
 #include "GridTileController.h"
+#include "GridFloor.h"
 #include "myMultiTextureAnimation.h"
 #include "myAnimation.h"
 

@@ -1,7 +1,7 @@
 #include "GridTileController.h"
 
 
-GridTileController::GridTileController(PolygonType polygonType)
+GridTileController::GridTileController(Globals::PolygonType polygonType)
 {
 	this->polygonType = polygonType;
 	numberOfTiles = 0;
@@ -19,8 +19,9 @@ void GridTileController::initializeTiles(int numberOfTiles)
 	tiles = new GridTile*[numberOfTiles];
 	for (int i=0; i<numberOfTiles; i++)
 	{
-		tiles[i] = new GridTile();
+		tiles[i] = new GridTile(polygonType);
 	}
+	setTilePositions();
 	isInitialized = true;
 }
 
@@ -37,4 +38,14 @@ GridTile* GridTileController::getTile(int index)
 int GridTileController::getNumberOfTiles()
 {
 	return numberOfTiles;
+}
+
+void GridTileController::setTilePositions()
+{	
+	int x=0, y=0;
+
+	for (int i=0; i<numberOfTiles; i++)
+	{
+		tiles[i]->getShape()->move(x+=30,y+=30);
+	}
 }

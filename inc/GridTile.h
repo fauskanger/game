@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 
+#include "Globals.h"
 #include "GridTileController.h"
 #include "GridTileShape.h"
+
 
 class GridTileController;
 
@@ -10,11 +12,11 @@ class GridTile
 {
 private:
 	GridTileShape* gtShape;
-	GridTileController::PolygonType polygonType;
+	Globals::PolygonType polygonType;
 	void generateShape();
 
 public:
-	GridTile(void);
+	GridTile(Globals::PolygonType polygonType);
 	~GridTile(void);
 
 	sf::Shape* getShape();

@@ -143,7 +143,7 @@ int main()
 	myMultiTextureAnimation* drawAnimation = new myMultiTextureAnimation(3,animations);
 	drawAnimation->setOrigin(49);
 	float drawAnimationRotationStep = 1.0f;
-	float rotFactor = 1.0f;
+	float rotAngle = 1.0f;
 
 	// Window:
 	sf::ContextSettings settings;
@@ -154,7 +154,7 @@ int main()
 	window->setMouseCursorVisible(false);
 
 	// Floor:
-	GridTileController* gtc = new GridTileController(GridTileController::PolygonType::PENTAGON);
+	GridTileController* gtc = new GridTileController(Globals::PolygonType::PENTAGON);
 	GridFloor* gf = new GridFloor(window, 4, 4, gtc);
 
 	// Icon:
@@ -267,7 +267,7 @@ int main()
 		
 		drawAnimation->next();
 		drawAnimation->setPosition(mousePos.x, mousePos.y);
-		drawAnimation->rotate(drawAnimationRotationStep *( 2.0f*(1.0f-sin((rotFactor+=0.1)/100))));
+		drawAnimation->rotate(drawAnimationRotationStep *( 0.5f*sin((rotAngle+=0.1)/100)));
 		ci->iterate();
 		myText.setColor(ci->getColor());
 
