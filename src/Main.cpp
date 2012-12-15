@@ -35,6 +35,17 @@ void testMouse(sf::Mouse::Button button, bool* buttonBool, const sf::Event event
 }
 
 /*
+	Convenient int/float/double/.../ to string converter
+*/
+template<typename Ty>
+std::string to_string(const Ty& obj)
+{
+    std::ostringstream buffer;
+    buffer << obj;
+    return buffer.str();
+} 
+
+/*
 	Return an sf::Color with getColor(). Calling iterate() will fluently increment or decrement the color's rgb values.
 */
 class myColorIterator {
@@ -143,8 +154,8 @@ int main()
 	window->setMouseCursorVisible(false);
 
 	// Floor:
-	GridTileController* gtc = new GridTileController();
-	//GridFloor* gf = new GridFloor(window, 4, 4, gtc);
+	GridTileController* gtc = new GridTileController(GridTileController::PolygonType::PENTAGON);
+	GridFloor* gf = new GridFloor(window, 4, 4, gtc);
 
 	// Icon:
 	sf::Image smurf;
@@ -175,6 +186,7 @@ int main()
 	sf::Vector2f mousePos(0,0);
 
 	bool keyEscape = false;
+	bool keyT = false;
 
 	myColorIterator* ci = new myColorIterator();
 
@@ -192,6 +204,7 @@ int main()
 			testMouse(sf::Mouse::Button::Right, &rMouse, event);
 			
 			testKey(sf::Keyboard::Escape, &keyEscape, event);
+			testKey(sf::Keyboard::T, &keyT, event);
 			
 
 			if (event.type == sf::Event::Closed)
@@ -258,7 +271,8 @@ int main()
 		ci->iterate();
 		myText.setColor(ci->getColor());
 
-		myText.setString(std::to_string(long double(mousePos.x)) + ":" + std::to_string(long double(mousePos.y)));
+		myText.setString(to_string(mousePos.x) + ":" + to_string(mousePos.y));
+		if(keyT) myText.setString("Number of tiles: " + to_string(gtc->getNumberOfTiles()));
 
 
 
@@ -266,7 +280,7 @@ int main()
 		window->clear();
 
 		
-		//gf->draw();
+		gf->draw();
 		
 		window->draw(myText2);
 
@@ -274,6 +288,7 @@ int main()
 				
 		window->draw(sprite);
 		if(drawText) window->draw(*(drawAnimation->getSprite()));
+
 
 
 		window->display();

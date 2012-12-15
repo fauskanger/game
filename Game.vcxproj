@@ -208,7 +208,6 @@
     <ClInclude Include="inc\Main.h" />
     <ClInclude Include="inc\myAnimation.h" />
     <ClInclude Include="inc\myMultiTextureAnimation.h" />
-    <ClInclude Include="inc\resource.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

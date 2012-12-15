@@ -4,6 +4,8 @@
 #include <Windows.h>
 
 #include <iostream>
+#include <string>
+#include <sstream>
 #include <math.h>
 
 #include "GridFloor.h"

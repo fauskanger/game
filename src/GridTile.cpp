@@ -6,8 +6,6 @@ GridTile::GridTile()
 	//this->polygonType = pt;
 
 	generateShape(); 
-
-	int b = 8;
 }
 
 

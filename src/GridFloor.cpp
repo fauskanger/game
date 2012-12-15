@@ -8,6 +8,7 @@ GridFloor::GridFloor(sf::RenderWindow* window, int nX, int nY, GridTileControlle
 	numCols = nX;
 	numRows = nY;
 	this->gtc = gtc;
+	this->gtc->initializeTiles(nX*nY);
 }
 
 

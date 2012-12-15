@@ -4,12 +4,13 @@
 #include "GridTileController.h"
 #include "GridTileShape.h"
 
+class GridTileController;
 
 class GridTile
 {
 private:
 	GridTileShape* gtShape;
-//	GridTileController::PolygonType polygonType;
+	GridTileController::PolygonType polygonType;
 	void generateShape();
 
 public:
