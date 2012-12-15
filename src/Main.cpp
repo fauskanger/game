@@ -133,6 +133,9 @@ int main()
 
 
 	// CREATION:
+
+	// Init Globals:
+	Globals* globals = new Globals();
 	
 	// Animation:
 	myAnimation* blueAnimation = new myAnimation(0,118,"img/animation/Blue/BlueNoWand_00",".png",0);
@@ -166,6 +169,7 @@ int main()
 	sf::Texture tex_smurf;
 	tex_smurf.loadFromImage(smurf);
 	sf::Sprite sprite(tex_smurf);
+	sprite.setOrigin(64,64);
 	sprite.setPosition(videomode.width/2-tex_smurf.getSize().x/2, videomode.height/2-tex_smurf.getSize().y/2); 
 
 	// Font:
@@ -188,7 +192,16 @@ int main()
 	bool keyEscape = false;
 	bool keyT = false;
 
+	// Misc. variables:
 	myColorIterator* ci = new myColorIterator();
+	float gravity = 9.81f;
+	float vx = -3;
+	float spriteDx, spriteDy;
+	sf::Time elapsed = globals->gameClock->restart();
+	int spriteVertDirection = 1;
+	int spriteHorDirection = 1;
+	int prevSpriteVertDirection = spriteVertDirection;
+
 
 
 
@@ -243,9 +256,12 @@ int main()
 
 		}
 
+		
 
 
 		// LOGIC
+		elapsed = globals->gameClock->getElapsedTime();
+
 		drawAnimation->setTexture((lMouse)? 1: 2);
 		drawAnimation->setTexture((rMouse)? 0: drawAnimation->getTextureIndex());
 		
@@ -273,6 +289,37 @@ int main()
 
 		myText.setString(to_string(mousePos.x) + ":" + to_string(mousePos.y));
 		if(keyT) myText.setString("Number of tiles: " + to_string(gtc->getNumberOfTiles()));
+
+
+		// Sprite:
+		prevSpriteVertDirection = spriteVertDirection;
+		bool spriteIsLeft, spriteIsRight, spriteIsTop, spriteIsBottom;
+		spriteIsLeft =		(sprite.getGlobalBounds().left <= 0);
+		spriteIsRight =		(sprite.getGlobalBounds().left + sprite.getGlobalBounds().width >= videomode.width);
+		spriteIsTop =		(sprite.getGlobalBounds().top <= 0);
+		spriteIsBottom =	(sprite.getGlobalBounds().top + sprite.getGlobalBounds().height >= videomode.height);
+
+		if (spriteIsLeft || spriteIsRight)
+		{
+			spriteHorDirection = -spriteHorDirection;			
+			globals->getSound(1)->play();
+		}
+
+		if (spriteIsTop || spriteIsBottom)
+		{
+			spriteVertDirection = -spriteVertDirection;
+			globals->getSound(0)->play();
+		}
+		
+		double time = (prevSpriteVertDirection == spriteVertDirection)? globals->gameClock->getElapsedTime().asSeconds(): globals->gameClock->restart().asSeconds();
+
+		spriteDx = vx*spriteHorDirection;
+		spriteDy = gravity*spriteVertDirection*time;
+
+		sprite.move(spriteDx, spriteDy);
+
+		sprite.setScale(1,(spriteVertDirection>0)? 1: -1);
+
 
 
 
