@@ -5,7 +5,8 @@ GridTileController::GridTileController()
 {
 	numberOfTiles = 1;
 	tiles = new GridTile*[numberOfTiles];
-	tiles[0] = new GridTile();
+	// TODO: initialize *tiles
+	GridTile* gt = new GridTile();
 }
 
 

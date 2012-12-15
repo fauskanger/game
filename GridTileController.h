@@ -1,6 +1,9 @@
 #pragma once
 #include "GridTile.h"
 
+
+class GridTile;
+
 class GridTileController
 {
 public: 

@@ -4,7 +4,10 @@
 GridTile::GridTile()
 {
 	//this->polygonType = pt;
+
 	generateShape(); 
+
+	int b = 8;
 }
 
 
@@ -15,14 +18,14 @@ GridTile::~GridTile(void)
 
 sf::Shape* GridTile::getShape()
 {
-	return shape;
+	return gtShape->getShape();
 }
 
 
 void GridTile::generateShape()
 {
 	
-		shape = (new GridTileShape())->getShape();
+		gtShape = new GridTileShape();
 	/*switch(polygonType)
 	{
 	case GridTileController::PENTAGON:

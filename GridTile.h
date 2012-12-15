@@ -8,7 +8,7 @@
 class GridTile
 {
 private:
-	sf::Shape* shape;
+	GridTileShape* gtShape;
 //	GridTileController::PolygonType polygonType;
 	void generateShape();
 

@@ -144,7 +144,7 @@ int main()
 
 	// Floor:
 	GridTileController* gtc = new GridTileController();
-	GridFloor* gf = new GridFloor(window, 4, 4, gtc);
+	//GridFloor* gf = new GridFloor(window, 4, 4, gtc);
 
 	// Icon:
 	sf::Image smurf;
@@ -255,8 +255,6 @@ int main()
 		drawAnimation->next();
 		drawAnimation->setPosition(mousePos.x, mousePos.y);
 		drawAnimation->rotate(drawAnimationRotationStep *( 2.0f*(1.0f-sin((rotFactor+=0.1)/100))));
-		//drawAnimation->move(100*cos(drawAnimationRotationStep),100*sin(drawAnimationRotationStep));
-
 		ci->iterate();
 		myText.setColor(ci->getColor());
 
@@ -268,7 +266,7 @@ int main()
 		window->clear();
 
 		
-		gf->draw();
+		//gf->draw();
 		
 		window->draw(myText2);
 
