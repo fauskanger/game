@@ -152,7 +152,7 @@ int main()
 	sf::ContextSettings settings;
 	sf::VideoMode videomode = sf::VideoMode(800,600);
 	sf::RenderWindow* window = new sf::RenderWindow(videomode, "SFML Game",(sf::Style::Default ^ sf::Style::Resize), settings);
-	window->setFramerateLimit(120);
+	window->setFramerateLimit(60);
 	window->setKeyRepeatEnabled(false);
 	window->setMouseCursorVisible(false);
 
