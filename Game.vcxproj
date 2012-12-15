@@ -37,16 +37,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>H:\SMFL\include;$(IncludePath)</IncludePath>
+    <IncludePath>F:\Dropbox\VisualStudioProjects\Game\Game\inc;H:\SMFL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>H:\SMFL\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>F:\Dropbox\VisualStudioProjects\Game\Game\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>H:\SMFL\include;$(IncludePath)</IncludePath>
+    <IncludePath>F:\Dropbox\VisualStudioProjects\Game\Game\inc;H:\SMFL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>H:\SMFL\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>F:\Dropbox\VisualStudioProjects\Game\Game\src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -72,15 +74,6 @@
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="GridFloor.cpp" />
-    <ClCompile Include="GridTile.cpp" />
-    <ClCompile Include="GridTileController.cpp" />
-    <ClCompile Include="GridTileShape.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="myAnimation.cpp" />
-    <ClCompile Include="myMultiTextureAnimation.cpp" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="img\animation\Blue\BlueNoWand_00000.png" />
     <None Include="img\animation\Blue\BlueNoWand_00001.png" />
@@ -204,17 +197,26 @@
     <None Include="img\smurf.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GridFloor.h" />
-    <ClInclude Include="GridTile.h" />
-    <ClInclude Include="GridTileController.h" />
-    <ClInclude Include="GridTileShape.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="myAnimation.h" />
-    <ClInclude Include="myMultiTextureAnimation.h" />
-    <ClInclude Include="resource.h" />
+    <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Game.rc" />
+    <ClInclude Include="inc\GridFloor.h" />
+    <ClInclude Include="inc\GridTile.h" />
+    <ClInclude Include="inc\GridTileController.h" />
+    <ClInclude Include="inc\GridTileShape.h" />
+    <ClInclude Include="inc\Main.h" />
+    <ClInclude Include="inc\myAnimation.h" />
+    <ClInclude Include="inc\myMultiTextureAnimation.h" />
+    <ClInclude Include="inc\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GridFloor.cpp" />
+    <ClCompile Include="src\GridTile.cpp" />
+    <ClCompile Include="src\GridTileController.cpp" />
+    <ClCompile Include="src\GridTileShape.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\myAnimation.cpp" />
+    <ClCompile Include="src\myMultiTextureAnimation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
