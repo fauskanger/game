@@ -6,7 +6,6 @@
 #include "GridTileShape.h"
 
 
-class GridTileController;
 
 class GridTile
 {
