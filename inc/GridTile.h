@@ -19,6 +19,7 @@ public:
 	GridTile(Globals::PolygonType polygonType);
 	~GridTile(void);
 
+	bool hasPoint(float x, float y);
 	sf::Shape* getShape();
 };
 

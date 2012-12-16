@@ -6,7 +6,8 @@ class GridTileShape
 public:
 	GridTileShape(void);
 	~GridTileShape(void);
-
+	
+	bool hasPoint(float x, float y);
 	sf::ConvexShape* getShape();
 	sf::ConvexShape* shape;
 

@@ -32,3 +32,8 @@ void GridTile::generateShape()
 		break;
 	}
 }
+
+bool GridTile::hasPoint(float x, float y)
+{
+	return false;
+}

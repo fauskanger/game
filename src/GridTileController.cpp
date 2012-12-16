@@ -49,3 +49,19 @@ void GridTileController::setTilePositions()
 		tiles[i]->getShape()->move(x+=30,y+=30);
 	}
 }
+
+GridTile* GridTileController::getHoveredTile(float x, float y)
+{	
+	GridTile* ret = NULL;
+
+	for (int i=0; i<numberOfTiles; i++)
+	{
+		if (tiles[i]->hasPoint(x,y))
+		{
+			ret = tiles[i];
+			break;
+		}
+	}
+
+	return ret;
+}

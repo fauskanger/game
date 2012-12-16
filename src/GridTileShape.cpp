@@ -23,3 +23,8 @@ sf::ConvexShape* GridTileShape::getShape()
 {
 	return shape;
 }
+
+bool GridTileShape::hasPoint(float x, float y)
+{
+	return false;
+}

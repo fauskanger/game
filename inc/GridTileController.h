@@ -19,6 +19,7 @@ public:
 	void initializeTiles(int numberOfTiles);
 	GridTile* getTile(int index);
 	int getNumberOfTiles();
+	GridTile* getHoveredTile(float x, float y);
 
 	GridTileController(Globals::PolygonType polygonType);
 	~GridTileController(void);
