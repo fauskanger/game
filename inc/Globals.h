@@ -9,11 +9,16 @@ private:
 	sf::SoundBuffer** sounds;
 	sf::Sound* sound;
 public:
-	sf::Clock* gameClock;
+
+	// Constants:
+	static const int FRAMERATE = 120;
+	static enum SoundNames {HappyHit, SadHit};
 	static enum PolygonType {TRIANGLE, SQUARE, PENTAGON, HEXAGON};
 	// 14 known pentagon tiling patterns: http://www.mathpuzzle.com/tilepent.html
 	// See also: http://boardgamegeek.com/thread/534988/something-that-has-bugged-me-for-oh-well-overn/
 
+	
+	sf::Clock* gameClock;
 
 	Globals(void) 
 	{

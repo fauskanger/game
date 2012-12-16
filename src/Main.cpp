@@ -152,7 +152,7 @@ int main()
 	sf::ContextSettings settings;
 	sf::VideoMode videomode = sf::VideoMode(800,600);
 	sf::RenderWindow* window = new sf::RenderWindow(videomode, "SFML Game",(sf::Style::Default ^ sf::Style::Resize), settings);
-	window->setFramerateLimit(60);
+	window->setFramerateLimit(Globals::FRAMERATE);
 	window->setKeyRepeatEnabled(false);
 	window->setMouseCursorVisible(false);
 
@@ -302,13 +302,13 @@ int main()
 		if (spriteIsLeft || spriteIsRight)
 		{
 			spriteHorDirection = -spriteHorDirection;			
-			globals->getSound(1)->play();
+			globals->getSound(Globals::SadHit)->play();
 		}
 
 		if (spriteIsTop || spriteIsBottom)
 		{
 			spriteVertDirection = -spriteVertDirection;
-			globals->getSound(0)->play();
+			globals->getSound(Globals::HappyHit)->play();
 		}
 		
 		double time = (prevSpriteVertDirection == spriteVertDirection)? globals->gameClock->getElapsedTime().asSeconds(): globals->gameClock->restart().asSeconds();
