@@ -26,6 +26,8 @@ void GridTile::generateShape()
 	{
 	case Globals::PENTAGON:
 		gtShape = new GridTileShape();
+		gtShape->getShape()->setOutlineThickness(2);
+		gtShape->getShape()->setFillColor(sf::Color::Transparent);
 		break;
 	default:
 		gtShape = new GridTileShape();
@@ -35,5 +37,5 @@ void GridTile::generateShape()
 
 bool GridTile::hasPoint(float x, float y)
 {
-	return false;
+	return gtShape->hasPoint(x,y);
 }

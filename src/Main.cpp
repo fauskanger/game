@@ -13,6 +13,7 @@ void testKey(sf::Keyboard::Key keyType, bool* buttonBool, const sf::Event event)
 	if (event.type == sf::Event::KeyPressed  &&  event.key.code == keyType) 
 	{
 		*buttonBool = true;
+		std::cout << event.key.code << std::endl;
 	}
 
 	if (event.type == sf::Event::KeyReleased  &&  event.key.code == keyType) 
@@ -169,17 +170,24 @@ int main()
 	sf::Texture tex_smurf;
 	tex_smurf.loadFromImage(smurf);
 	sf::Sprite sprite(tex_smurf);
+	sprite.setPosition(338, 326); 
 	sprite.setOrigin(64,64);
-	sprite.setPosition(videomode.width/2-tex_smurf.getSize().x/2, videomode.height/2-tex_smurf.getSize().y/2); 
+	bool spriteIsLeft, spriteIsRight, spriteIsTop, spriteIsBottom;
 
-	// Font:
+	// Font and Text:
 	sf::Font font;
 	if(!font.loadFromFile("Fonts/trebuc.ttf"))
 		return 1;
-	
+
 	sf::Text myText("Hello, World!", font);
-	sf::Text myText2("(Press ESC to close)", font, 10U);
+	sf::Text myText2("[ Press ESC to close | Press Ctrl + T to toggle typing | Press Ctrl + R to clear text ]", font, 10U);
+	sf::Text myTextFromInput("", font, 30U);
+	//sf::String newCharsTyped = "";
+	myText.setColor(sf::Color(200, 50, 100, 128));
 	myText2.setPosition(0, videomode.height-myText2.getCharacterSize()-5);
+	myTextFromInput.setPosition(40, 300);
+
+	std::string textEnteredBuffer;
 	
 	// Event-variables:	
 	sf::Event event;
@@ -191,6 +199,24 @@ int main()
 
 	bool keyEscape = false;
 	bool keyT = false;
+	bool keyR = false;
+	bool keyW = false;
+
+	bool keyLAlt = false;
+	bool keyRAlt = false;
+	bool keyAlt = false;
+
+	bool keyLCtrl = false;
+	bool keyRCtrl = false;
+	bool keyCtrl = false;
+	
+	bool keyLShift = false;
+	bool keyRShift = false;
+	bool keyShift = false;
+
+	bool keyBackspace = false;
+
+	bool isTyping = false;
 
 	// Misc. variables:
 	myColorIterator* ci = new myColorIterator();
@@ -201,14 +227,20 @@ int main()
 	int spriteVertDirection = 1;
 	int spriteHorDirection = 1;
 	int prevSpriteVertDirection = spriteVertDirection;
-
-
+	
+	const sf::FloatRect edgeBoxLeft	(sf::Vector2f(-2,0),				sf::Vector2f(2,videomode.height));
+	const sf::FloatRect edgeBoxRight	(sf::Vector2f(videomode.width, 2),	sf::Vector2f(2,videomode.height));
+	const sf::FloatRect edgeBoxTop	(sf::Vector2f(0,-2),				sf::Vector2f(videomode.width,2));
+	const sf::FloatRect edgeBoxBottom	(sf::Vector2f(0,videomode.height),	sf::Vector2f(videomode.width, 2));
 
 
 
 	// Game loop  //////////////////////
 	while(play)
 	{
+		// Resetting some variables:
+		keyBackspace = false;
+
 		// EVENTS
 		while(window->pollEvent(event))
 		{			
@@ -216,8 +248,23 @@ int main()
 			testMouse(sf::Mouse::Button::Middle, &mMouse, event);
 			testMouse(sf::Mouse::Button::Right, &rMouse, event);
 			
-			testKey(sf::Keyboard::Escape, &keyEscape, event);
 			testKey(sf::Keyboard::T, &keyT, event);
+			testKey(sf::Keyboard::R, &keyR, event);
+			testKey(sf::Keyboard::W, &keyW, event);
+			
+			testKey(sf::Keyboard::Escape, &keyEscape, event);
+			//testKey(sf::Keyboard::Back, &keyBackspace, event);
+
+			testKey(sf::Keyboard::LAlt, &keyLAlt, event);
+			testKey(sf::Keyboard::RAlt, &keyRAlt, event);
+			testKey(sf::Keyboard::LControl, &keyLCtrl, event);
+			testKey(sf::Keyboard::RControl, &keyRCtrl, event);
+			testKey(sf::Keyboard::LShift, &keyLShift, event);
+			testKey(sf::Keyboard::RShift, &keyRShift, event);
+			
+			keyAlt =	(keyLAlt || keyRAlt);
+			keyCtrl =	(keyLCtrl || keyRCtrl);
+			keyShift =	(keyLShift || keyRShift);
 			
 
 			if (event.type == sf::Event::Closed)
@@ -254,6 +301,29 @@ int main()
 				drawText = true;
 			}
 
+			if (event.type == sf::Event::TextEntered)
+			{
+				if (isTyping)
+				{
+					if (event.text.unicode == 8) {
+						keyBackspace = true;
+					}
+					else
+					{
+						std::string tmp;
+						//if (event.text.unicode == 8364)
+						//{
+						//	tmp += '€';
+						//}
+						//else
+						//{
+							tmp += static_cast<char>(event.text.unicode);
+						//}
+						textEnteredBuffer.append(tmp);
+					}
+				}
+			}
+
 		}
 
 		
@@ -264,7 +334,14 @@ int main()
 
 		drawAnimation->setTexture((lMouse)? 1: 2);
 		drawAnimation->setTexture((rMouse)? 0: drawAnimation->getTextureIndex());
+
 		
+		if (keyCtrl && keyT && !keyAlt && !keyShift)
+		{
+			isTyping = !isTyping;
+			window->setKeyRepeatEnabled(isTyping);
+		}
+
 		if (keyEscape)
 		{
 			play = false;
@@ -285,7 +362,20 @@ int main()
 		drawAnimation->setPosition(mousePos.x, mousePos.y);
 		drawAnimation->rotate(drawAnimationRotationStep *( 0.5f*sin((rotAngle+=0.1)/100)));
 		ci->iterate();
-		myText.setColor(ci->getColor());
+
+		if (keyR && keyCtrl && !keyAlt && !keyShift)
+		{
+			textEnteredBuffer = "";
+		}
+		if	(keyBackspace && isTyping)
+		{
+			textEnteredBuffer = textEnteredBuffer.substr(0, ((textEnteredBuffer.length() > 1)? textEnteredBuffer.length()-1: 0));
+		}
+		
+		myTextFromInput.setColor(ci->getColor());
+		myTextFromInput.setString(textEnteredBuffer);
+		myTextFromInput.setOrigin(0,myTextFromInput.getCharacterSize());
+		myTextFromInput.rotate(sin(elapsed.asSeconds())*2);
 
 		myText.setString(to_string(mousePos.x) + ":" + to_string(mousePos.y));
 		if(keyT) myText.setString("Number of tiles: " + to_string(gtc->getNumberOfTiles()));
@@ -293,16 +383,16 @@ int main()
 
 		// Sprite:
 		prevSpriteVertDirection = spriteVertDirection;
-		bool spriteIsLeft, spriteIsRight, spriteIsTop, spriteIsBottom;
-		spriteIsLeft =		(sprite.getGlobalBounds().left <= 0);
-		spriteIsRight =		(sprite.getGlobalBounds().left + sprite.getGlobalBounds().width >= videomode.width);
-		spriteIsTop =		(sprite.getGlobalBounds().top <= 0);
-		spriteIsBottom =	(sprite.getGlobalBounds().top + sprite.getGlobalBounds().height >= videomode.height);
+		spriteIsLeft =		sprite.getGlobalBounds().intersects(edgeBoxLeft);
+		spriteIsRight =		sprite.getGlobalBounds().intersects(edgeBoxRight);
+		spriteIsTop =		sprite.getGlobalBounds().intersects(edgeBoxTop);
+		spriteIsBottom =	sprite.getGlobalBounds().intersects(edgeBoxBottom);
 
 		if (spriteIsLeft || spriteIsRight)
-		{
-			spriteHorDirection = -spriteHorDirection;			
+		{			
+			spriteHorDirection = -spriteHorDirection;
 			globals->getSound(Globals::SadHit)->play();
+			sprite.setScale(-sprite.getScale().x, sprite.getScale().y);
 		}
 
 		if (spriteIsTop || spriteIsBottom)
@@ -318,7 +408,16 @@ int main()
 
 		sprite.move(spriteDx, spriteDy);
 
-		sprite.setScale(1,(spriteVertDirection>0)? 1: -1);
+		if (sprite.getPosition().x - videomode.width)
+		{
+			double a = (2*sprite.getPosition().y - videomode.height)/(2*sprite.getPosition().x - videomode.width);
+			double angle = atan(a) * 180 / PI + 90;
+			sprite.setRotation(angle);
+			std::cout << "arctan(\t" << a << "\t) = " << angle << std::endl;
+		}
+		else {std::cout << "CENTER!" << std::endl;}
+		//sprite.setRotation( 180.0f * (1 - ((2*sprite.getPosition().y-sprite.getGlobalBounds().height) /(2*videomode.height-sprite.getGlobalBounds().height)) ));
+		//sprite.setScale(sprite.getScale().x, (spriteVertDirection>0)? 1: -1);
 
 
 
@@ -335,6 +434,8 @@ int main()
 		window->draw(myText2);
 
 		window->draw(myText);
+
+		window->draw(myTextFromInput);
 				
 		window->draw(sprite);
 		if(drawText) window->draw(*(drawAnimation->getSprite()));
