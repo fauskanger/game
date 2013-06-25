@@ -8,6 +8,7 @@ class Globals
 private:
 	sf::SoundBuffer** sounds;
 	sf::Sound* sound;
+	int numberOfSounds;
 public:
 
 	// Constants:
@@ -24,7 +25,7 @@ public:
 	{
 		gameClock = new sf::Clock();
 
-		int numberOfSounds = 2;
+		numberOfSounds = 2;
 		sounds = new sf::SoundBuffer*[numberOfSounds];
 		for(int i=0; i<numberOfSounds; i++)
 		{
@@ -39,6 +40,8 @@ public:
 
 	sf::Sound* getSound(int index)
 	{
+		index = (index<0 || index >= numberOfSounds)? 0: index; // TODO: return NULL and test where used?
+
 		sound->setBuffer(*sounds[index]);
 		return sound;
 	}
@@ -48,6 +51,7 @@ public:
 	~Globals(void)
 	{
 		delete gameClock;
+		delete[] sound, sounds; // TODO: Is this correct?
 	}
 };
 
