@@ -13,7 +13,6 @@ void testKey(sf::Keyboard::Key keyType, bool* buttonBool, const sf::Event event)
 	if (event.type == sf::Event::KeyPressed  &&  event.key.code == keyType) 
 	{
 		*buttonBool = true;
-		std::cout << event.key.code << std::endl;
 	}
 
 	if (event.type == sf::Event::KeyReleased  &&  event.key.code == keyType) 
@@ -393,12 +392,22 @@ int main()
 			spriteHorDirection = -spriteHorDirection;
 			globals->getSound(Globals::SadHit)->play();
 			sprite.setScale(-sprite.getScale().x, sprite.getScale().y);
+			
+			while (sprite.getGlobalBounds().intersects(edgeBoxLeft))
+				sprite.move(1,0);
+			while (sprite.getGlobalBounds().intersects(edgeBoxRight))
+				sprite.move(-1,0);
 		}
 
 		if (spriteIsTop || spriteIsBottom)
 		{
 			spriteVertDirection = -spriteVertDirection;
 			globals->getSound(Globals::HappyHit)->play();
+			
+			while (sprite.getGlobalBounds().intersects(edgeBoxTop))
+				sprite.move(0,1);
+			while (sprite.getGlobalBounds().intersects(edgeBoxBottom))
+				sprite.move(0,-1);
 		}
 		
 		double time = (prevSpriteVertDirection == spriteVertDirection)? globals->gameClock->getElapsedTime().asSeconds(): globals->gameClock->restart().asSeconds();
@@ -406,18 +415,21 @@ int main()
 		spriteDx = vx*spriteHorDirection;
 		spriteDy = gravity*spriteVertDirection*time;
 
+		//sprite.setPosition(mousePos.x, mousePos.y);
 		sprite.move(spriteDx, spriteDy);
 
 		if (sprite.getPosition().x - videomode.width)
 		{
 			double a = (2*sprite.getPosition().y - videomode.height)/(2*sprite.getPosition().x - videomode.width);
-			double angle = atan(a) * 180 / PI + 90;
-			sprite.setRotation(angle);
+			double angle = atan(a) * 180 / PI;
+	
+			angle += (sprite.getPosition().x < videomode.height/2)? -90: -90;
+			//sprite.setRotation(angle);
 			std::cout << "arctan(\t" << a << "\t) = " << angle << std::endl;
 		}
 		else {std::cout << "CENTER!" << std::endl;}
 		//sprite.setRotation( 180.0f * (1 - ((2*sprite.getPosition().y-sprite.getGlobalBounds().height) /(2*videomode.height-sprite.getGlobalBounds().height)) ));
-		//sprite.setScale(sprite.getScale().x, (spriteVertDirection>0)? 1: -1);
+		sprite.setScale(sprite.getScale().x, (spriteVertDirection>0)? 1: -1);
 
 
 
